@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($env:GROQ_API_KEY = \\(Get-Content \".env.local\" | Select-String '^GROQ_API_KEY='\\).ToString\\(\\).Split\\('=',2\\)[1]; $r = Invoke-RestMethod -Uri \"https://api.groq.com/openai/v1/models\" -Headers @{Authorization=\"Bearer $env:GROQ_API_KEY\"}; $r.data | Where-Object { $_.active -eq $true } | Select-Object id | Format-Table -AutoSize)"
+    ]
+  }
+}
